@@ -1,0 +1,29 @@
+<h1> 候選人列表</h1>
+<%= link_to "<span class='glyphicon glyphicon-flag'></span>新增候選人".html_safe, new_candidate_path %>
+<table class="table">
+  <thead>
+    <tr>
+      <td>投票</td>
+      <td>候選姓名</td>
+      <td>政黨</td>
+      <td>政見</td>
+      <td>得票數</td>
+      <td>處理</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @candidates.each do |candidate| %>
+    <tr>
+      <td><%=link_to"",vote_candidate_path(candidate),method: "post",data:{confirm:"確定投給這個人？"},class:"glyphicon glyphicon-heart" %></td>
+      <td><%=candidate.name%>(年齡：<%=candidate.age%> 歲)</td>
+      <td><%=candidate.party%></td>
+      <td><%=candidate.politics %></td>
+      <td><%=candidate.vote_logs.count%></td>
+      <td>
+        <%= link_to"編輯",edit_candidate_path(candidate)%>
+        <%= link_to"刪除",candidate_path(candidate),method: "delete",data:{ confirm:"確認刪除"}%>
+      </td>
+    </tr>
+    <%end%>
+  </tbody>
+</table>
