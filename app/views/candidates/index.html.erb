@@ -5,6 +5,7 @@
   <thead>
     <tr>
       <td>投票</td>
+      <td></td>
       <td>候選姓名</td>
       <td>政黨</td>
       <td>政見</td>
@@ -16,6 +17,7 @@
     <% @candidates.each do |candidate| %>
     <tr>
       <td><%=link_to"",vote_candidate_path(candidate),method: "post",data:{confirm:"確定投給這個人？"},class:"glyphicon glyphicon-heart" %></td>
+      <td><%=image_tag candidate.image,width: "50px" %></td>
       <td><%=candidate.name%>(年齡：<%=candidate.age%> 歲)</td>
       <td><%=candidate.party%></td>
       <td><%=candidate.politics %></td>

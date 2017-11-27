@@ -18,6 +18,11 @@
     <%= f.label :politics, "政見" %>
     <%= f.text_area :politics,class: "form-control" %><br />
       </div>
+      <div class="form-group">
+        <%= f.label :image, "Photo" %>
+        <%= image_tag @candidate.image, width: '50px' if @candidate.image? %>
+        <%= f.file_field :image,class: "form-control" %><br />
+      </div>
     <%= f.submit  %>
   <% end %>
 </div>

@@ -50,7 +50,7 @@ class CandidatesController < ApplicationController
 
     private
     def candidate_params
-      params.require(:candidate).permit( :name, :age, :party, :politics)
+      params.require(:candidate).permit( :name, :age, :party, :politics, :image)
     end
 
 end
