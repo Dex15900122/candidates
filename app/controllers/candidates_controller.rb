@@ -1,6 +1,6 @@
 class CandidatesController < ApplicationController
   def index
-    @candidates = Candidate.all
+    @candidates = Candidate.page(params[:page]).per(3)
   end
 
   def new
