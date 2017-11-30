@@ -4,4 +4,12 @@ class ApplicationController < ActionController::Base
   include SetSource
   include CurrentUserConcern
 
+    before_action :set_title
+
+    def set_title
+      @candidcate_tiltle = "投票網站"
+    end
+
+
+
 end

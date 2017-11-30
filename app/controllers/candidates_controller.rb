@@ -1,10 +1,12 @@
 class CandidatesController < ApplicationController
   def index
     @candidates = Candidate.page(params[:page]).per(3)
+      @candidcate_tiltle = "投票網站"
   end
 
   def new
     @candidate=Candidate.new
+
   end
 
   def create
@@ -18,6 +20,7 @@ class CandidatesController < ApplicationController
 
   def show
     @candidates = Candidate.find_by(id: params[:id])
+      @candidcate_tiltle = Candidate.find_by(id: params[:id]).name
   end
 
   def edit
