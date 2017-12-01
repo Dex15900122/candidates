@@ -17,7 +17,7 @@ class PortfoliosController < ApplicationController
 
   def show
     @portfolio_item = Portfolio.find_by(id: params[:id])
-      @portfolio_item_tiltle = Portfolio.find_by(id: params[:id]).name
+
   end
 
   def edit
@@ -27,7 +27,7 @@ class PortfoliosController < ApplicationController
   def update
     @portfolio_item=Portfolio.find_by(id: params[:id])
     if @portfolio_item.update(portfolio_item_params)
-      redirect_to portfolio_path,notice: "update candidate successful"
+      redirect_to portfolios_path,notice: "update portfolio successful"
     else
       render :edit
     end

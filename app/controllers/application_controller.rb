@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
     def set_title
       @candidcate_tiltle = "投票網站"
+      
     end
 
 
