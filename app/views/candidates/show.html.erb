@@ -1,4 +1,17 @@
 <h1><%=@candidates.name%></h1>
 
+
+
+
+  <!-- Start of comment form -->
+  <%= render 'comments/comment_form'%>
+
+
+
+
+  <!-- End of comment form -->
+
+  <!-- Start of comments -->
+  <%= render @candidates.comments %>
+  <!-- End of comments  -->
 <h3><%= link_to 'Back to index', candidates_path %><h3>
-  

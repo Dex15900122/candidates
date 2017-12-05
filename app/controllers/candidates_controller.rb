@@ -19,6 +19,9 @@ class CandidatesController < ApplicationController
   end
 
   def show
+    @candidate = Candidate.includes(:comments).find_by(id: params[:id])
+    @comment = Comment.new
+
     @candidates = Candidate.find_by(id: params[:id])
     @candidcate_tiltle = Candidate.find_by(id: params[:id]).name
   end
