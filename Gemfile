@@ -36,7 +36,7 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'carrierwave'
 gem 'kaminari'
-
+gem 'redis', '~> 4.0', '>= 4.0.1'
 
 
 group :development, :test do

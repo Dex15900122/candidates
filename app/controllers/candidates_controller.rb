@@ -20,7 +20,7 @@ class CandidatesController < ApplicationController
 
   def show
     @candidates = Candidate.find_by(id: params[:id])
-      @candidcate_tiltle = Candidate.find_by(id: params[:id]).name
+    @candidcate_tiltle = Candidate.find_by(id: params[:id]).name
   end
 
   def edit
