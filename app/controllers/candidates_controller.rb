@@ -10,17 +10,22 @@ class CandidatesController < ApplicationController
   end
 
   def create
+
     @candidate=Candidate.new(candidate_params)
-    if @candidate.save
-      redirect_to candidates_path,notice: "create candidate successful"
-    else
-      render :new
-    end
+      if @candidate.save
+        redirect_to candidates_path,notice: "create candidate successful"
+      else
+        render :new
+      end
+
   end
 
   def show
-    @candidates = Candidate.find_by(id: params[:id])
-      @candidcate_tiltle = Candidate.find_by(id: params[:id]).name
+    @candidate = Candidate.includes(:comments).friendly.find(params[:id])
+    @comment = Comment.new
+
+
+    @candidcate_tiltle = Candidate.friendly.find_by(id: params[:id])
   end
 
   def edit
@@ -57,7 +62,9 @@ class CandidatesController < ApplicationController
 
     private
     def candidate_params
-      params.require(:candidate).permit( :name, :age, :party, :politics, :image)
+
+      params.require(:candidate).permit( :name, :age, :party, :politics, :image, :slug)
     end
+
 
 end
