@@ -1,8 +1,6 @@
-class Comment < ApplicationRecord
+class Post < ApplicationRecord
   belongs_to :user
   belongs_to :candidate
 
   validates :content , presence: true , length: {minimum: 3,maximimum:1000}
-
-  after_create_commit { CommentBroadcastJob.perform_later(self)}
 end

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  resources :comments
+
+  get 'posts/new'
+
+  get 'posts/create'
+  resources :posts
   resources :portfolios
   get 'pages/home'
 
@@ -15,6 +19,8 @@ Rails.application.routes.draw do
       post :vote
     end
   end
+  
+ mount ActionCable.server => '/cable'
 
 
 
