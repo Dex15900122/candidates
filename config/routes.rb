@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       post :vote
     end
   end
-  
+require 'sidekiq/web'
  mount ActionCable.server => '/cable'
 
 

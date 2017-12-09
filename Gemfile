@@ -37,8 +37,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 gem 'carrierwave'
 gem 'kaminari'
-
-gem 'redis', '~> 3.0'
+gem 'actioncable', '~> 5.1.4'
+gem 'redis', '~> 3.2'
+gem 'sidekiq'
 
 
 group :development, :test do
@@ -56,7 +57,7 @@ group :development do
 
 end
 group :production do
-  gem 'pg'
+  
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
