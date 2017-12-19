@@ -22,6 +22,7 @@ class CandidatesController < ApplicationController
 
   def show
     @candidate = Candidate.includes(:comments).friendly.find(params[:id])
+
     @comment = Comment.new
 
 
@@ -50,7 +51,7 @@ class CandidatesController < ApplicationController
   def vote
     @candidate = Candidate.find_by(id: params[:id])
     @candidate.vote_logs.create(ip_address: request.remote_ip) if @candidate
-    @candidate.save
+
     redirect_to candidates_path,notice: "完成投票！"
   end
 

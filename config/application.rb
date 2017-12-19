@@ -1,4 +1,7 @@
+
 require_relative 'boot'
+
+ require 'redis'
 
 require 'rails/all'
 
